@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { marked } from 'marked'
 
-import { StrapiSimplePagesBasicQueryResult } from '../contracts/simple-page'
+import { StrapiSimplePagesQueryResult } from '../contracts/simple-page'
 
 interface Props {
 	data: {
-		allStrapiSimplePage: StrapiSimplePagesBasicQueryResult
+		allStrapiSimplePage: StrapiSimplePagesQueryResult
 	}
 }
 
