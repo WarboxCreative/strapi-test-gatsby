@@ -14,14 +14,16 @@ const SimplePage = (props: Props) => {
 	return (
 		<div>
 			{props.data.allStrapiSimplePage.nodes.map((post) => {
-				return <article key={post.id}>
-					<h2>{post.title}</h2>
-					<div dangerouslySetInnerHTML={{ __html: marked(post.content.data.content) }}></div>
-					<Link to={`/${post.slug}`}>Read more</Link>
-				</article>
+				return (
+					<article key={post.id}>
+						<h2>{post.title}</h2>
+						<div dangerouslySetInnerHTML={{ __html: marked(post.content.data.content) }}></div>
+						<Link to={`/${post.slug}`}>Read more</Link>
+					</article>
+				)
 			})}
-	  	</div>
-  	)
+		</div>
+	)
 }
 
 export const query = graphql`

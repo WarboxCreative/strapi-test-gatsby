@@ -1,5 +1,5 @@
 import React from 'react'
-import {RouteComponentProps} from '@reach/router'
+import { RouteComponentProps } from '@reach/router'
 
 import { SimplePage as SimplePageProps } from '../contracts/simple-page'
 import { useSiteMetadata } from '../hooks/useSiteMetadata'
@@ -36,11 +36,14 @@ export function Head(props: Props) {
 	return (
 		<>
 			<title>{seo.metaTitle}</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<meta name="description" content={seo.metaDescription} />
 			<meta name="og:title" content={seo.metaTitle} />
 			<meta name="og:description" content={seo.metaDescription} />
-			<meta name="og:image" content={seo.socialImage.localFile.childImageSharp.gatsbyImageData.images.fallback?.src} />
+			<meta
+				name="og:image"
+				content={seo.socialImage.localFile.childImageSharp.gatsbyImageData.images.fallback?.src}
+			/>
 			{location && <meta name="og:url" content={siteMetadata.siteUrl + location.pathname} />}
 		</>
 	)

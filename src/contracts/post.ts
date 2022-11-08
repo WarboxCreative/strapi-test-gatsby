@@ -2,8 +2,8 @@ import { StrapiFieldRichText } from './strapi'
 
 export interface Post {
 	id: string
-	Title: string
-	Content: StrapiFieldRichText
+	title: string
+	content: StrapiFieldRichText
 }
 
 export interface Posts extends Array<Post> {}
