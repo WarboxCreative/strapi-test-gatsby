@@ -1,19 +1,17 @@
 import React from 'react'
-import { RouteComponentProps } from '@reach/router'
+import { HeadProps, PageProps } from 'gatsby'
 
 import { SimplePage as SimplePageProps } from '../contracts/simple-page'
-import { useSiteMetadata } from '../hooks/useSiteMetadata'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import SEO from '../components/Layout/SEO'
 
-interface Props extends RouteComponentProps {
-	pageContext: {
-		data: {
-			page: SimplePageProps
-		}
+interface PageContextProps {
+	data: {
+		page: SimplePageProps
 	}
 }
 
-const SimplePage = (props: Props) => {
+const SimplePage = (props: PageProps<object, PageContextProps>) => {
 	const { page } = props.pageContext.data
 
 	return (
@@ -27,26 +25,10 @@ const SimplePage = (props: Props) => {
 	)
 }
 
-export function Head(props: Props) {
-	const { location } = props
+export function Head(props: HeadProps<object, PageContextProps>) {
 	const { seo } = props.pageContext.data.page
 
-	const siteMetadata = useSiteMetadata()
-
-	return (
-		<>
-			<title>{seo.metaTitle}</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
-			<meta name="description" content={seo.metaDescription} />
-			<meta name="og:title" content={seo.metaTitle} />
-			<meta name="og:description" content={seo.metaDescription} />
-			<meta
-				name="og:image"
-				content={seo.socialImage.localFile.childImageSharp.gatsbyImageData.images.fallback?.src}
-			/>
-			{location && <meta name="og:url" content={siteMetadata.siteUrl + location.pathname} />}
-		</>
-	)
+	return <SEO seo={seo} twitter={true} />
 }
 
 export default SimplePage

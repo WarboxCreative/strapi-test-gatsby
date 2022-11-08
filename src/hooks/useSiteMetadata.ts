@@ -4,6 +4,8 @@ interface SiteMetadataProps {
 	site: {
 		siteMetadata: {
 			siteUrl: string
+			title: string
+			twitterHandle: string
 		}
 	}
 }
@@ -14,6 +16,8 @@ export const useSiteMetadata = () => {
 			site {
 				siteMetadata {
 					siteUrl
+					title
+					twitterHandle
 				}
 			}
 		}
