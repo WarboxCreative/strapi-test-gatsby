@@ -1,4 +1,6 @@
 import { GatsbyImage } from './gatsby'
+
+import { SEOProps } from './shared'
 import { StrapiFieldRichText, StrapiFieldText } from './strapi'
 
 export interface SimplePage {
@@ -7,6 +9,7 @@ export interface SimplePage {
 	title: StrapiFieldText
 	content: StrapiFieldRichText
 	featuredImage: GatsbyImage
+	seo: SEOProps
 }
 
 export interface SimplePages extends Array<SimplePage> {}

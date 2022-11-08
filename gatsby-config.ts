@@ -8,14 +8,27 @@ import type { GatsbyConfig } from "gatsby";
 const strapiConfig = {
 	apiURL: process.env.STRAPI_API_URL,
 	accessToken: process.env.STRAPI_API_TOKEN,
-	collectionTypes: [ 'post', 'simple-page' ],
+	collectionTypes: [
+		'post',
+		{
+			singularName: 'simple-page',
+			queryParams: {
+				populate: {
+					featuredImage: "*",
+					seo: {
+						populate: "*"
+					}
+				}
+			}
+		}
+	],
 	singleTypes: [],
 };
 
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Gatsby - Strapi Test`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `http://localhost:8000`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

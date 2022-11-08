@@ -30,7 +30,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 					featuredImage {
 						localFile {
 							childImageSharp {
-								gatsbyImageData(width: 800, placeholder: BLURRED, formats: [WEBP, JPG])
+								gatsbyImageData
+							}
+						}
+					}
+					seo {
+						metaTitle
+						metaDescription
+						socialImage {
+							localFile {
+								childImageSharp {
+									gatsbyImageData
+								}
 							}
 						}
 					}
