@@ -1,0 +1,23 @@
+{
+	"endOfLine": "lf",
+	"semi": false,
+	"singleQuote": true,
+	"useTabs": true,
+	"tabWidth": 4,
+	"trailingComma": "es5",
+	"printWidth": 120,
+	"importOrder": [
+		"react",
+		"gatsby",
+		"^@loadable",
+		"^@components",
+		"^@context",
+		"^@mui",
+		"^@contracts",
+		"^[./]",
+		"^@images",
+		"^@styles"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
+}
