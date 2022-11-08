@@ -5,7 +5,7 @@ interface Props {
 }
 
 const SEO = (props: Props) => {
-	return <div>SEO</div>
+	return <div>{props.children}</div>
 }
 
 export default SEO

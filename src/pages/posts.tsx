@@ -30,10 +30,10 @@ export const query = graphql`
 		allStrapiPost {
 			nodes {
 				id
-				Title
-				Content {
+				title
+				content {
 					data {
-						Content
+						content
 					}
 				}
 			}
