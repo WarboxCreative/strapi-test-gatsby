@@ -1,9 +1,11 @@
 import React from 'react'
-import { HeadProps, PageProps } from 'gatsby'
 
-import { SimplePage as SimplePageProps } from '../contracts/simple-page'
+import { HeadProps, PageProps } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import SEO from '../components/Layout/SEO'
+
+import SEO from '@components/Layout/SEO'
+
+import { SimplePage as SimplePageProps } from '@contracts/simple-page'
 
 interface PageContextProps {
 	data: {
