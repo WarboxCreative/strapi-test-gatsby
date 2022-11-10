@@ -3,6 +3,7 @@ import React from 'react'
 import { PageProps as GatsbyPageProps, HeadProps } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import Container from '@components/Layout/Container'
 import Layout from '@components/Layout/Layout'
 import SEO from '@components/Utils/SEO'
 
@@ -20,11 +21,16 @@ const Page = (props: GatsbyPageProps<null, PageContextProps>) => {
 	return (
 		<Layout>
 			<article>
-				<h1>{page.title}</h1>
-				<div>
-					<GatsbyImage image={page.featuredImage.image.localFile.childImageSharp.gatsbyImageData} alt="" />
-				</div>
-				<div dangerouslySetInnerHTML={{ __html: page.content.data.content }}></div>
+				<Container>
+					<h1>{page.title}</h1>
+					<div>
+						<GatsbyImage
+							image={page.featuredImage.image.localFile.childImageSharp.gatsbyImageData}
+							alt=""
+						/>
+					</div>
+					<div dangerouslySetInnerHTML={{ __html: page.content.data.content }}></div>
+				</Container>
 			</article>
 		</Layout>
 	)

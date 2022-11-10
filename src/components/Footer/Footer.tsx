@@ -7,7 +7,7 @@ import * as styles from './Footer.module.scss'
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
-			<Container>
+			<Container type="wide">
 				<p>This is the footer</p>
 			</Container>
 		</footer>
