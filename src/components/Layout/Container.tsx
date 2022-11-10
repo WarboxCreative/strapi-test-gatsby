@@ -4,7 +4,8 @@ import * as styles from './Container.module.scss'
 
 interface Props {
 	children: React.ReactNode
-	type: 'normal' | 'wide'
+	containerClassName?: string
+	type?: 'normal' | 'wide'
 }
 
 const Container = (props: Props) => {
@@ -12,6 +13,10 @@ const Container = (props: Props) => {
 
 	if (props.type === 'wide') {
 		containerStyles.push(styles.wide)
+	}
+
+	if (props.containerClassName) {
+		containerStyles.push(props.containerClassName)
 	}
 
 	return <div className={containerStyles.join(' ')}>{props.children}</div>
