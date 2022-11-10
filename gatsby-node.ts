@@ -1,9 +1,9 @@
-import path from 'path'
-import FilterWarningsPlugin from 'webpack-filter-warnings-plugin'
+const path = require('path')
+const FilterWarningsPlugin = require('webpack-filter-warnings-plugin')
 
-import { PageProps } from '@contracts/page'
+import { GatsbyNode } from 'gatsby'
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
 	const { createPage } = actions
 
 	// Get all templates that we're going to use below
@@ -49,9 +49,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	`)
 
 	if (PagesQuery.errors) {
-		return reporter.panicOnBuild('Error while running GraphQL query "AllPages"')
+		reporter.panicOnBuild('Error while running GraphQL query "AllPages"')
 	} else {
-		PagesQuery.data.allStrapiPage.nodes.forEach((page: PageProps) => {
+		const data = PagesQuery.data as Queries.AllPagesQuery
+
+		data.allStrapiPage.nodes.forEach((page) => {
 			createPage({
 				path: `/${page.slug}`,
 				component: PageTemplate,
@@ -63,7 +65,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	}
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions, }) => {
 	actions.setWebpackConfig({
 		resolve: {
 			// Setup some aliases for our imports
