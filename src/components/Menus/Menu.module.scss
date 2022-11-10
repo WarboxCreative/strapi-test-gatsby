@@ -1,0 +1,12 @@
+@use '@styles/layout';
+@use '@styles/fonts';
+
+.menu {
+	@include layout.cleanList;
+
+	.menu-item {
+		a {
+			@include fonts.underlineOnHover;
+		}
+	}
+}

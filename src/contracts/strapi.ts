@@ -8,6 +8,24 @@ export type StrapiFieldRichText = {
 	}
 }
 
+// Plugin Components
+export type StrapiMenus = {
+	attributes: {
+		slug: string
+		items: {
+			data: StrapiMenu[]
+		}
+	}
+}
+
+export type StrapiMenu = {
+	attributes: {
+		title: string
+		url: string
+		target: string | null
+	}
+}
+
 // Custom Components
 export type StrapiImageComponent = {
 	image: GatsbyImage

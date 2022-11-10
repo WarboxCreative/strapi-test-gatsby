@@ -52,6 +52,15 @@ const config: GatsbyConfig = {
 			resolve: `gatsby-source-strapi`,
 			options: strapiConfig,
 		},
+		{
+			resolve: `gatsby-source-menus-strapi-plugin`,
+			options: {
+			apiURL: process.env.STRAPI_API_URL,
+			menusEndpoint: `menus`,
+				nested: true,
+				menuID: ''
+			},
+		},
 		"gatsby-plugin-sass",
 		"gatsby-plugin-image",
 		"gatsby-plugin-sharp",

@@ -1,0 +1,7 @@
+@mixin underlineOnHover {
+	text-decoration: none;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
