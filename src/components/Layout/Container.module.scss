@@ -2,7 +2,14 @@
 
 .container {
 	width: var(--site-width-mobile);
-	max-width: var(--site-width);
-
+	
 	@include layout.center;
+	
+	&:not(.wide) {
+		max-width: var(--site-width);
+	}
+
+	&.wide {
+		max-width: var(--site-width-wide);
+	}
 }
