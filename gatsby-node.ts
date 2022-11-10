@@ -1,9 +1,8 @@
-const path = require("path")
-const FilterWarningsPlugin = require('webpack-filter-warnings-plugin')
+import path from 'path'
+import FilterWarningsPlugin from 'webpack-filter-warnings-plugin'
 
 import { PageProps } from '@contracts/page'
 
-// @ts-ignore
 exports.createPages = async ({ graphql, actions, reporter }) => {
 	const { createPage } = actions
 
@@ -18,6 +17,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 					id
 					slug
 					title
+					content {
+						data {
+							content
+						}
+					}
 					featuredImage {
 						image {
 							localFile {
@@ -26,6 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 								}
 							}
 						}
+						altText
 					}
 					seo {
 						metaTitle
@@ -58,7 +63,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	}
 }
 
-// @ts-ignore
 exports.onCreateWebpackConfig = ({ actions }) => {
 	actions.setWebpackConfig({
 		resolve: {

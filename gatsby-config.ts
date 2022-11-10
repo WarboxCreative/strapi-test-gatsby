@@ -33,12 +33,13 @@ const config: GatsbyConfig = {
 			siteUrl: `http://localhost:8000`,
 			twitterHandle: `@warboxcreative`,
 	},
-  	graphqlTypegen: true,
+	graphqlTypegen: true,
 	plugins: [
 		{
 			resolve: `gatsby-source-strapi`,
 			options: strapiConfig,
 		},
+		"gatsby-plugin-sass",
 		"gatsby-plugin-image",
 		"gatsby-plugin-sharp",
 		"gatsby-transformer-sharp",

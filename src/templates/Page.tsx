@@ -22,7 +22,7 @@ const Page = (props: GatsbyPageProps<null, PageContextProps>) => {
 			<article>
 				<h1>{page.title}</h1>
 				<div>
-					<GatsbyImage image={page.featuredImage.localFile.childImageSharp.gatsbyImageData} alt="" />
+					<GatsbyImage image={page.featuredImage.image.localFile.childImageSharp.gatsbyImageData} alt="" />
 				</div>
 				<div dangerouslySetInnerHTML={{ __html: page.content.data.content }}></div>
 			</article>

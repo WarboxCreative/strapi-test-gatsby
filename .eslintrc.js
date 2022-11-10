@@ -13,6 +13,11 @@ module.exports = {
 	},
 	plugins: ['react', '@typescript-eslint'],
 	rules: {
-		'no-empty-interface': false,
+		'no-empty-interface': 0,
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
 	},
 }

@@ -1,18 +1,16 @@
-import { GatsbyImage } from './gatsby'
-
-import { SEOProps } from './shared'
-import { StrapiFieldRichText, StrapiFieldText } from './strapi'
+import { SEOProps } from '@contracts/shared'
+import { StrapiFieldRichText, StrapiFieldText, StrapiImageComponent } from '@contracts/strapi'
 
 export interface PageProps {
 	id: string
 	slug: string
 	title: StrapiFieldText
 	content: StrapiFieldRichText
-	featuredImage: GatsbyImage
+	featuredImage: StrapiImageComponent
 	seo: SEOProps
 }
 
-export interface PagesProps extends Array<PageProps> {}
+export type PagesProps = Array<PageProps>
 
 export interface PagesQueryProps {
 	nodes: PagesProps
