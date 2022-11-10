@@ -5,6 +5,14 @@ require('dotenv').config({
 import type { GatsbyConfig } from "gatsby";
 
 // Strapi Source Config
+const seoPopulate = {
+	populate: "socialImage"
+}
+
+const featuredImagePopulate = {
+	populate: "image"
+}
+
 const strapiConfig = {
 	apiURL: process.env.STRAPI_API_URL,
 	accessToken: process.env.STRAPI_API_TOKEN,
@@ -14,17 +22,22 @@ const strapiConfig = {
 			singularName: 'page',
 			queryParams: {
 				populate: {
-					featuredImage: {
-						populate: "image"
-					},
-					seo: {
-						populate: "socialImage"
-					}
+					featuredImage: featuredImagePopulate,
+					seo: seoPopulate
 				}
 			}
 		}
 	],
-	singleTypes: [],
+	singleTypes: [
+		{
+			singularName: 'homepage',
+			queryParams: {
+				populate: {
+					seo: seoPopulate
+				}
+			}
+		}
+	],
 };
 
 const config: GatsbyConfig = {

@@ -3,6 +3,7 @@ import React from 'react'
 import { PageProps as GatsbyPageProps, HeadProps } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
+import RichText from '@components/Content/RichText/RichText'
 import Container from '@components/Layout/Container'
 import Layout from '@components/Layout/Layout'
 import SEO from '@components/Utils/SEO'
@@ -29,7 +30,7 @@ const Page = (props: GatsbyPageProps<null, PageContextProps>) => {
 							alt=""
 						/>
 					</div>
-					<div dangerouslySetInnerHTML={{ __html: page.content.data.content }}></div>
+					<RichText content={page.content} />
 				</Container>
 			</article>
 		</Layout>
