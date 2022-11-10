@@ -11,12 +11,14 @@ const strapiConfig = {
 	collectionTypes: [
 		'post',
 		{
-			singularName: 'simple-page',
+			singularName: 'page',
 			queryParams: {
 				populate: {
-					featuredImage: "*",
+					featuredImage: {
+						populate: "image"
+					},
 					seo: {
-						populate: "*"
+						populate: "socialImage"
 					}
 				}
 			}

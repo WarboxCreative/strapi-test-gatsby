@@ -1,32 +1,29 @@
 const path = require("path")
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin')
 
-import { SimplePage } from '@contracts/simple-page'
+import { PageProps } from '@contracts/page'
 
 // @ts-ignore
 exports.createPages = async ({ graphql, actions, reporter }) => {
 	const { createPage } = actions
 
 	// Get all templates that we're going to use below
-	const SimplePageTemplate = path.resolve(`src/templates/SimplePage.tsx`)
+	const PageTemplate = path.resolve(`src/templates/Page.tsx`)
 
-	// Create Simple Pages
-	const SimplePagesQuery = await graphql(`
-		query AllSimplePageQuery {
-			allStrapiSimplePage {
+	// Create Pages
+	const PagesQuery = await graphql(`
+		query AllPages {
+			allStrapiPage {
 				nodes {
 					id
 					slug
 					title
-					content {
-						data {
-							content
-						}
-					}
 					featuredImage {
-						localFile {
-							childImageSharp {
-								gatsbyImageData
+						image {
+							localFile {
+								childImageSharp {
+									gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [WEBP, JPG])
+								}
 							}
 						}
 					}
@@ -36,7 +33,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 						socialImage {
 							localFile {
 								childImageSharp {
-									gatsbyImageData
+									gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [WEBP, JPG])
 								}
 							}
 						}
@@ -46,13 +43,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 		}
 	`)
 
-	if (SimplePagesQuery.errors) {
-		return reporter.panicOnBuild('Error while running GraphQL query "AllSimplePageQuery"')
+	if (PagesQuery.errors) {
+		return reporter.panicOnBuild('Error while running GraphQL query "AllPages"')
 	} else {
-		SimplePagesQuery.data.allStrapiSimplePage.nodes.forEach((page: SimplePage) => {
+		PagesQuery.data.allStrapiPage.nodes.forEach((page: PageProps) => {
 			createPage({
 				path: `/${page.slug}`,
-				component: SimplePageTemplate,
+				component: PageTemplate,
 				context: {
 					data: { page }
 				},

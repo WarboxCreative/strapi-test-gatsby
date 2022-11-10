@@ -3,7 +3,7 @@ import { GatsbyImage } from './gatsby'
 import { SEOProps } from './shared'
 import { StrapiFieldRichText, StrapiFieldText } from './strapi'
 
-export interface SimplePage {
+export interface PageProps {
 	id: string
 	slug: string
 	title: StrapiFieldText
@@ -12,8 +12,8 @@ export interface SimplePage {
 	seo: SEOProps
 }
 
-export interface SimplePages extends Array<SimplePage> {}
+export interface PagesProps extends Array<PageProps> {}
 
-export interface StrapiSimplePagesQueryResult {
-	nodes: SimplePages
+export interface PagesQueryProps {
+	nodes: PagesProps
 }
