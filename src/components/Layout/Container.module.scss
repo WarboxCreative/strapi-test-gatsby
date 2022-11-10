@@ -1,0 +1,8 @@
+@use '@styles/layout';
+
+.container {
+	width: var(--site-width-mobile);
+	max-width: var(--site-width);
+
+	@include layout.center;
+}
